@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O'Kanban | Outil de gestion de projet des Cassini</title>
+</head>
+<body>
+  <ul id="lists"></ul>
+  <script>
+    fetchAndDisplayLists();
+
+    async function fetchAndDisplayLists() {
+      const httpResponse = await fetch("/api/lists");
+      const lists = await httpResponse.json();
+
+      const listsElement = document.getElementById("lists");
+      lists.forEach(list => {
+        listsElement.insertAdjacentHTML("beforeend", `<li>${list.name}</li>`);
+      });
+    }
+  </script>
+</body>
+</html>

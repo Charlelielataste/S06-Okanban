@@ -1,0 +1,103 @@
+@endpoint = http://localhost:3000/api
+
+############ LISTS ##########
+
+### Get all lists
+GET {{endpoint}}/lists
+
+
+### Get one list
+GET {{endpoint}}/lists/1
+
+### Create list
+POST {{endpoint}}/lists
+Content-Type: application/x-www-form-urlencoded
+
+name=<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Pirate_Flag_of_Jack_Rackham.svg/744px-Pirate_Flag_of_Jack_Rackham.svg.png">
+
+### Update list
+PATCH {{endpoint}}/lists/1
+Content-Type: application/x-www-form-urlencoded
+
+name=Nouveau nom de liste
+&position=43
+
+### Delete list
+DELETE {{endpoint}}/lists/6
+
+############ CARDS ##########
+
+### Get all cards
+GET {{endpoint}}/cards
+
+
+### Get one card
+GET {{endpoint}}/cards/1
+
+
+### Create card
+POST {{endpoint}}/cards
+Content-Type: application/x-www-form-urlencoded
+
+content=Une nouvelle carte
+&position=42
+&color=#ff00ff
+&list_id=1
+
+
+### Update card
+PATCH {{endpoint}}/cards/10
+Content-Type: application/x-www-form-urlencoded
+
+content=Nouveau contenu
+&position=43
+&color=#444
+&list_id=2
+
+
+### Delete card
+DELETE {{endpoint}}/cards/
+
+### Get all cards of list
+GET {{endpoint}}/lists/2/cards
+
+
+############ TAGS #########
+
+### Get all tags
+GET {{endpoint}}/tags
+
+
+### Get tag
+GET {{endpoint}}/tags/1
+
+### Create tag
+POST {{endpoint}}/tags
+Content-Type: application/x-www-form-urlencoded
+
+name=Mon tag sympa
+&color=#F0F
+
+### Update tag
+PATCH  {{endpoint}}/tags/1
+Content-Type: application/x-www-form-urlencoded
+
+name=Nouveau nom du tag
+&color=#C6C
+
+### Delete tag
+DELETE {{endpoint}}/tags/1
+
+### Add tag to card
+PUT {{endpoint}}/cards/1/tags/3
+
+
+### Remove tag from card
+DELETE {{endpoint}}/cards/1/tags/1
+
+
+
+
+############ MISC ##########
+
+GET {{endpoint}}/404
